@@ -1,0 +1,47 @@
+/* App.css */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f9fa;
+}
+
+.app-header {
+  margin-top: 15vh;
+  text-align: center;
+}
+
+.app-title {
+  font-size: 3rem;
+  color: #003366;
+  margin-bottom: 0.5em;
+}
+
+.app-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2em;
+  color: #333;
+}
+
+.app-button {
+  background-color: #28a745;
+  color: #fff;
+  font-size: 1.25rem;
+  padding: 0.75em 2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.app-footer {
+  background-color: #003366;
+  color: #fff;
+  padding: 1em;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
