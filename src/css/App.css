@@ -1,0 +1,54 @@
+/* --- Main Header Bar --- */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background-color: #003366; /* Your dark blue background */
+}
+
+.app-header h1 {
+  color: white;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+/* --- Navigation Container --- */
+.app-header nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* --- General Style for ALL Nav Buttons/Links --- */
+.nav-btn {
+  display: inline-block;
+  background-color: #28a745; /* Default green color */
+  color: white;
+  padding: 0.5em 1.2em;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  
+  /* ✅ 1. Remove the underline from all nav items */
+  text-decoration: none; 
+}
+
+.nav-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: translateY(-2px);
+  color: white; /* Ensure text remains white on hover */
+  text-decoration: none; /* Ensure no underline on hover either */
+}
+
+/* ✅ 2. Specific style for the Logout button to make it red */
+.nav-btn.logout-btn {
+  background-color: #dc3545; /* Red color */
+}
+
+.nav-btn.logout-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+}

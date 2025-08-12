@@ -1,0 +1,292 @@
+/* List Styling */
+.question-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1em;
+}
+
+.question-row {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  background: #f7f9fc;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+  padding: 0.6em;
+}
+
+/* Sequence number */
+.question-seq {
+  font-size: 1.2em;
+  color: #333;
+  font-weight: bold;
+  width: 2em;
+  text-align: right;
+}
+
+/* Question text takes available space */
+.question-title {
+  flex: 1;
+}
+
+/* Level badges */
+.level-badge {
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-right: 1em;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.06);
+}
+
+.level-easy {
+  background: #4caf50;
+}
+
+.level-medium {
+  background: linear-gradient(90deg, #ff9800 60%, #ffc107 100%);
+}
+
+.level-hard {
+  background: #d32f2f;
+}
+
+/* ✅ KEEP YOUR EXISTING EDIT BUTTON STYLE - unchanged */
+.question-list button {
+  background: #007bff; /* or your previous color */
+  color: white;
+  border: none;
+  padding: 0.4em 0.8em;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.question-list button:hover {
+  background: #0056b3; /* hover effect */
+}
+.level-badge-inline {
+  display: inline-block;
+  margin-left: 0.8em;
+  vertical-align: middle;
+  font-size: 0.8em;        /* smaller than question text */
+  font-weight: bold;
+  padding: 2px 11px;
+  border-radius: 10px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.level-easy {
+  background: #4caf50;
+}
+
+.level-medium {
+  background: linear-gradient(90deg, #ff9800 60%, #ffc107 100%);
+}
+
+.level-hard {
+  background: #d32f2f;
+}
+.manage-container {
+  width: 60%;
+  margin: 2.5em auto;
+  padding: 2em 2em 1em 2em;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.10);
+}
+
+.manage-container h2 {
+  text-align: center;
+  font-size: 1.4em;
+  margin-bottom: 1em;
+  color: #23395d;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.manage-container label {
+  display: block;
+  margin-top: 1em;
+  font-weight: bold;
+  color: #222;
+  font-size: 1.06em;
+}
+
+.manage-container select {
+  margin-top: 0.3em;
+  padding: 0.5em;
+  width: 65%;
+  max-width: 350px;
+  font-size: 1em;
+  border-radius: 6px;
+  border: 1px solid #b9b9c7;
+  box-shadow: 0 1px 6px rgba(80,80,80,0.04);
+  background: #f7f9fc;
+  transition: border 0.2s;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .manage-container { width: 98%; padding: 1em; }
+  .manage-container select { width: 90%; }
+}
+.question-list {
+  margin-top: 1.3em;
+}
+/* Custom Dropdown Styling */
+.select-wrapper {
+  position: relative;
+  width: 65%;
+  max-width: 350px;
+}
+
+/* Style the select element itself */
+.select-wrapper select {
+  /* Remove default browser appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  
+  /* Your custom styles */
+  width: 100%;
+  padding: 0.7em 2.5em 0.7em 1em; /* Extra padding on right for arrow */
+  background-color: #f7f9fc;
+  border: 1px solid #b9b9c7;
+  border-radius: 6px;
+  font-size: 1em;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Add a custom arrow */
+.select-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid #555; /* Arrow color */
+  pointer-events: none; /* Let clicks pass through to the select */
+}
+
+/* Focus and hover states for better UX */
+.select-wrapper select:hover {
+  border-color: #007bff;
+}
+
+.select-wrapper select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+.manage-container label {
+  /* Remove display: block; if it's there, or change it */
+  display: flex;        /* ✅ Make label a flex container */
+  align-items: center;  /* ✅ Vertically align items */
+  gap: 0.8em;           /* ✅ Add space between label text and dropdown */
+  margin-top: 1.2em;    /* Adjust top margin as needed for spacing from elements above */
+  font-weight: bold;
+  color: #222;
+  font-size: 1.06em;
+}
+
+/* Optional: To prevent the label text from taking up too much space and
+   force the dropdown to its right, you can make the label text shrink.
+   Add this if the label text is very long. */
+.manage-container label span {
+    white-space: nowrap; /* Keep the text on a single line */
+    flex-shrink: 0;      /* Don't allow it to shrink */
+}
+
+/* Ensure the select wrapper correctly aligns within the flex label */
+.select-wrapper {
+  flex-grow: 1; /* ✅ Allow the wrapper to take available space */
+  /* Keep your other select-wrapper styles like position, max-width, etc. */
+  position: relative;
+  width: 100%; /* Important: set to 100% inside flex item */
+  max-width: 350px; /* Still constrain overall width */
+}
+/* Update your existing .question-list button styles or add new ones */
+.question-row button.icon-btn {
+  background: transparent; /* Make background transparent */
+  border: none;            /* Remove border */
+  padding: 0.2em;          /* Reduce padding to make it smaller */
+  cursor: pointer;
+  display: flex;           /* Use flexbox to center the icon */
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;      /* Slightly rounded corners */
+  transition: background 0.2s ease-in-out;
+  color: #007bff;          /* Icon color (e.g., blue for edit) */
+}
+
+.question-row button.icon-btn:hover {
+  background: rgba(0, 123, 255, 0.1); /* Light background on hover */
+  color: #0056b3; /* Darker icon color on hover */
+}
+
+/* Specific styling for the SVG icon inside the button */
+.question-row button.icon-btn svg {
+  width: 18px; /* Adjust icon size */
+  height: 18px;
+  stroke: currentColor; /* Inherit color from parent button */
+}
+
+/* Add a container for the action icons for better spacing */
+.action-icons {
+    display: flex;
+    gap: 0.5em; /* Space between edit and delete icons */
+}
+
+/* General icon button styles (you might have this already) */
+.question-row button.icon-btn {
+  background: transparent;
+  border: none;
+  padding: 0.3em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  transition: background 0.2s ease-in-out;
+}
+
+.question-row button.icon-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+/* Edit icon styling (you have this) */
+.question-row button.edit-icon-btn {
+  color: #007bff;
+}
+
+.question-row button.edit-icon-btn:hover {
+  background: rgba(0, 123, 255, 0.1);
+  color: #0056b3;
+}
+
+/* ✅ New Delete icon styling */
+.question-row button.delete-icon-btn {
+  color: #dc3545; /* Red color for delete */
+}
+
+.question-row button.delete-icon-btn:hover {
+  background: rgba(220, 53, 69, 0.1); /* Light red on hover */
+  color: #a71d2a; /* Darker red on hover */
+}
+
+

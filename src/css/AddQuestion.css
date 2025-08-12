@@ -1,0 +1,203 @@
+/* Container */
+.addq-container {
+  width: 60%;
+  max-width: 1000px;
+  min-width: 500px;
+  margin: 3em auto 0 auto;
+  padding: 2em;
+  background: #fff;
+  border-radius: 13px;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.11);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addq-container h2 {
+  text-align: center;
+  margin-bottom: 1.2em;
+  color: #003366;
+}
+
+.addq-form {
+  width: 100%;
+}
+
+/* Inputs */
+.addq-form label {
+  display: block;
+  font-weight: 500;
+  margin-top: 0.8em;
+  color: #2c3e50;
+}
+
+.addq-form input,
+.addq-form textarea,
+.addq-form select {
+  width: 100%;
+  margin-top: 0.3em;
+  padding: 0.7em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1.07rem;
+  box-sizing: border-box;
+}
+
+/* Buttons Row */
+.addq-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2em;
+  margin-top: 2em;
+}
+
+.addq-buttons button {
+  flex: 1;
+  padding: 0.7em 1.4em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.14s;
+}
+
+.addq-buttons button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.addq-buttons .secondary-btn {
+  background: #ffc107;
+  color: #000;
+}
+
+.addq-buttons .danger-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.addq-buttons button:first-of-type {
+  background: #28a745;
+  color: white;
+}
+
+/* Messages */
+.addq-error {
+  color: red;
+  margin-top: 0.8em;
+  text-align: center;
+}
+
+.addq-success {
+  color: green;
+  margin-top: 0.8em;
+  text-align: center;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .addq-container {
+    width: 90%;
+    min-width: unset;
+    padding: 1em;
+  }
+  .addq-buttons {
+    flex-direction: column;
+    gap: 0.7em;
+  }
+}
+/* ===== Common Label Styling for All Form Fields ===== */
+.addq-form label {
+  display: block;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #003366;
+  margin-top: 1em;
+}
+
+/* Give all inputs, selects, and textareas a consistent look */
+.addq-form input,
+.addq-form textarea,
+.addq-form select {
+  width: 100%;
+  margin-top: 0.3em;
+  padding: 0.65em;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.addq-form input:focus,
+.addq-form textarea:focus,
+.addq-form select:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 4px rgba(0, 119, 204, 0.4);
+  outline: none;
+}
+
+/* Special styling for Category */
+.addq-form input.category-input {
+  border: 2px solid #006699;
+  background: #f0f8ff;
+  text-transform: capitalize;
+}
+
+/* Special styling for Question Title */
+.addq-form textarea.question-title-input {
+  border: 2px solid #8b0000;
+  background: #fffaf0;
+  min-height: 80px;
+  resize: vertical;
+  font-weight: 500;
+}
+/* ===== Common Label Styling for All Form Fields ===== */
+.addq-form label {
+  display: block;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #003366;
+  margin-top: 1em;
+}
+
+/* Give all inputs, selects, and textareas a consistent look */
+.addq-form input,
+.addq-form textarea,
+.addq-form select {
+  width: 100%;
+  margin-top: 0.3em;
+  padding: 0.65em;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.addq-form input:focus,
+.addq-form textarea:focus,
+.addq-form select:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 4px rgba(0, 119, 204, 0.4);
+  outline: none;
+}
+
+/* Special styling for Category */
+.addq-form input.category-input {
+  border: 2px solid #006699;
+  background: #f0f8ff;
+  text-transform: capitalize;
+}
+
+/* Special styling for Question Title */
+.addq-form textarea.question-title-input {
+  border: 2px solid #8b0000;
+  background: #fffaf0;
+  min-height: 80px;
+  resize: vertical;
+  font-weight: 500;
+}
+

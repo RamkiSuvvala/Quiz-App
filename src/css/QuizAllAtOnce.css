@@ -1,0 +1,142 @@
+/* --- src/css/QuizAllAtOnce.css --- */
+
+/* Main container for the entire quiz view */
+.quiz-container {
+  width: 70%;
+  max-width: 900px;
+  margin: 2em auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  padding: 0;
+}
+
+/* --- 1. Static Header Section --- */
+.quiz-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 1em 1.5em;
+}
+
+.quiz-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.3em;
+}
+
+/* ✅ UPDATED Exit Button Style */
+.quiz-header .exit-btn {
+    background-color: #df0f9a;
+    color: white;
+    border: none;
+    padding: 0.5em 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.quiz-header .exit-btn:hover {
+    background-color: #ce062a;
+}
+
+/* --- 2. Scrollable Questions Area --- */
+.quiz-scroll-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 1.5em;
+}
+
+.loading-text {
+    text-align: center;
+    padding: 3em;
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* --- 3. Static Footer Section --- */
+.quiz-footer {
+  flex-shrink: 0;
+  border-top: 1px solid #eee;
+  text-align: center;
+  padding: 1.5em;
+  background-color: #f7f9fc;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* ✅ UPDATED Submit Button Style */
+.quiz-footer .submit-quiz-btn {
+    width: 50%;
+    max-width: 300px;
+    padding: 0.8em;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.quiz-footer .submit-quiz-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.quiz-footer .submit-quiz-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- Styling for Individual Questions --- */
+.question-block {
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid #f0f0f0;
+}
+.question-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.question-block .question-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 1em;
+    color: #444;
+}
+
+.options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+.option-label {
+    display: block;
+    padding: 0.8em;
+    background: #f8f9fa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: 1px solid #eee;
+}
+
+.option-label:hover {
+    background-color: #e9ecef;
+}
+
+.option-label input[type="radio"] {
+    margin-right: 0.8em;
+}
+
