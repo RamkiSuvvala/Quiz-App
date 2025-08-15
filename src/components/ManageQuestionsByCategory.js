@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { fetchWithAuth } from "../utils/api";
 import "../css/ManageQuestionsByCategory.css";
 
 function ManageQuestionsByCategory() {
@@ -10,16 +11,23 @@ function ManageQuestionsByCategory() {
   const location = useLocation();
 
   // Fetch categories on component mount
-  useEffect(() => {
-    fetch("http://localhost:8080/question/categories")
-      .then((res) => res.json())
-      .then((data) => setCategories(data))
-      .catch((err) => console.error("Error fetching categories:", err));
-  }, []);
+    useEffect(() => {
+      // ✅ Use the helper function instead of the standard fetch
+      fetchWithAuth("http://localhost:8080/api/quiz/categories")
+        .then((res) => {
+          if (!res.ok) {
+            // Handle potential errors like an expired token
+            throw new Error("Failed to fetch categories. Please log in again.");
+          }
+          return res.json();
+        })
+        .then((data) => setCategories(data))
+        .catch((err) => console.error("Error fetching categories:", err));
+    }, []);
 
   const fetchQuestionsForCategory = (category) => {
     if (category) {
-      fetch(`http://localhost:8080/question/category/${category}`)
+      fetchWithAuth(`http://localhost:8080/question/category/${encodeURIComponent(category)}`)
         .then((res) => res.json())
         .then((data) => setQuestions(data))
         .catch((err) => console.error("Error fetching questions:", err));
@@ -43,7 +51,7 @@ function ManageQuestionsByCategory() {
   const handleDelete = (questionId) => {
     // Confirm before deleting
     if (window.confirm("Are you sure you want to delete this question?")) {
-      fetch(`http://localhost:8080/question/deleteQuestion/${questionId}`, {
+      fetchWithAuth(`http://localhost:8080/question/deleteQuestion/${questionId}`, {
         method: "DELETE",
       })
       .then(response => {

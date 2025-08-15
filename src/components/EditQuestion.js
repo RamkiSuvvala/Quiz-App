@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { fetchWithAuth } from "../utils/api";
 import "../css/EditQuestion.css";
 
 function EditQuestion() {
@@ -12,7 +13,7 @@ function EditQuestion() {
 
   // Fetch question by ID when component loads
   useEffect(() => {
-    fetch(`http://localhost:8080/question/${id}`)
+    fetchWithAuth(`http://localhost:8080/question/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setFormData({
@@ -37,7 +38,7 @@ function EditQuestion() {
 
   const handleSave = () => {
     setLoading(true);
-    fetch(`http://localhost:8080/api/questions/${formData.questionId}`, {
+    fetchWithAuth(`http://localhost:8080/question/updateQuestion`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData)
@@ -45,7 +46,7 @@ function EditQuestion() {
       .then((res) => res.json())
       .then(() => {
         alert("Question updated!");
-        navigate("/manage"); // go back to list screen
+        navigate("/manage", { state: { category: categoryFromList, refresh: true } });
       })
       .finally(() => setLoading(false));
   };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { fetchWithAuth } from "../utils/api";
 import "../css/QuizSetup.css";
 
 function QuizSetup({ onStart }) {
@@ -8,8 +9,15 @@ function QuizSetup({ onStart }) {
 
   // Fetch categories on component mount
   useEffect(() => {
-    fetch("http://localhost:8080/question/categories")
-      .then((res) => res.json())
+    // ✅ Use the helper function instead of the standard fetch
+    fetchWithAuth("http://localhost:8080/api/quiz/categories")
+      .then((res) => {
+        if (!res.ok) {
+          // Handle potential errors like an expired token
+          throw new Error("Failed to fetch categories. Please log in again.");
+        }
+        return res.json();
+      })
       .then((data) => setCategories(data))
       .catch((err) => console.error("Error fetching categories:", err));
   }, []);

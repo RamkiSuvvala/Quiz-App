@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import CreatableSelect from "react-select/creatable";
+import { fetchWithAuth } from "../utils/api";
 import "../css/AddQuestion.css";
 
 function AddQuestion({ onQuestionAdded, onExit }) {
@@ -13,7 +15,7 @@ function AddQuestion({ onQuestionAdded, onExit }) {
     option4: "",
     rightAnswer: "",
   });
-
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]); // options: [{value,label}]
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -23,7 +25,7 @@ function AddQuestion({ onQuestionAdded, onExit }) {
 
   // Fetch categories from backend and convert to react-select format
   useEffect(() => {
-    fetch("http://localhost:2015/api/categories")
+    fetchWithAuth("http://localhost:8080/api/quiz/categories")
       .then((res) => res.json())
       .then((data) => {
         const options = data.map((cat) => ({ value: cat, label: cat }));
@@ -96,7 +98,7 @@ function AddQuestion({ onQuestionAdded, onExit }) {
 
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:2015/api/questions", {
+      const response = await fetchWithAuth("http://localhost:8080/question/addQuestion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -105,12 +107,17 @@ function AddQuestion({ onQuestionAdded, onExit }) {
         }),
       });
 
+      
       if (!response.ok)
         throw new Error(`Server error: ${response.statusText}`);
-
-      setSuccessMsg("Question added successfully!");
       clearForm();
+      alert("Question added successfully!");
       if (onQuestionAdded) onQuestionAdded();
+
+      if(response.ok){
+        navigate("/manage", { state: { category: formData.category.value, refresh: true } });
+      }
+      
     } catch (err) {
       setError(err.message || "Failed to add question.");
     } finally {
@@ -218,7 +225,7 @@ function AddQuestion({ onQuestionAdded, onExit }) {
           </button>
           <button
             type="button"
-            onClick={onExit}
+            onClick={() => navigate("/manage", { state: { category: formData.category, refresh: true } })}
             className="danger-btn"
             disabled={loading}
           >

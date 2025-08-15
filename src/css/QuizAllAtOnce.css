@@ -140,3 +140,38 @@
     margin-right: 0.8em;
 }
 
+.option-label.correct {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+  font-weight: bold;
+}
+
+/* Style for the user's incorrect choice (red) */
+.option-label.incorrect {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  opacity: 0.8; /* Make it slightly faded */
+}
+
+/* When submitted, make non-selected incorrect options less prominent */
+.option-label.incorrect:not(:has(input:checked)) {
+  opacity: 0.6;
+}
+
+/* Style for the "Quiz Complete" message in the footer */
+.quiz-complete-message {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+}
+.quiz-final-score {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #28a745; /* Green for success */
+  padding: 0.4em 0.8em;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
