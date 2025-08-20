@@ -10,6 +10,7 @@ import ManageQuestionsByCategory from "./components/ManageQuestionsByCategory";
 import EditQuestion from "./components/EditQuestion";
 import SignUp from './components/SignUp.js'; 
 import { jwtDecode } from 'jwt-decode';
+import LandingPage from "./components/LandingPage";
 
 // Your CSS imports
 import './css/App.css'; 
@@ -113,7 +114,8 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="/" element={<QuizSetup onStart={handleStart} />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/quiz-setup" element={<QuizSetup onStart={handleStart} />} />
           <Route
             path="/quiz"
             element={
@@ -132,6 +134,10 @@ function App() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
+       {/* Footer */}
+      <footer className="app-footer">
+        <p>© {new Date().getFullYear()} Quiz Application. All rights reserved.</p>
+      </footer>
     </>
   );
 }
